@@ -127,7 +127,7 @@ export function toCSV(questions: Question[]): string {
                 `${question.id},${question.name},${question.options.length},${question.points},${question.published}`,
         )
         .join("\n");
-    const ret_str = `${"id,name,options,points,published"}\n${questCSV} `;
+    const ret_str = `id,name,options,points,published\n${questCSV.trim()}`;
     return ret_str;
 }
 
@@ -183,7 +183,7 @@ export function addNewQuestion(
     type: QuestionType,
 ): Question[] {
     const nextQuest = makeBlankQuestion(id, name, type);
-    const newQuests = { ...questions };
+    const newQuests = [...questions];
     newQuests.push(nextQuest);
     return newQuests;
 }
@@ -244,23 +244,21 @@ export function editOption(
     targetOptionIndex: number,
     newOption: string,
 ): Question[] {
-    const newQuests = { ...questions };
-    const nextQuest = newQuests.map(
-        (newQuests: Question): Question =>
-            newQuests.id === targetId ?
+    const newQuests = questions.map(
+        (question: Question): Question =>
+            question.id === targetId ?
                 {
-                    ...newQuests,
+                    ...question,
                     options:
-                        targetId === -1 ?
-                            [...newQuests.options, newOption]
-                        :   [...newQuests.options],
+                        targetOptionIndex === -1 ?
+                            [...question.options, newOption]
+                        :   question.options.map((opt, index) =>
+                                index === targetOptionIndex ? newOption : opt,
+                            ),
                 }
-            :   newQuests,
+            :   question,
     );
-    if (targetOptionIndex !== -1) {
-        nextQuest[targetId].options.splice(targetOptionIndex, 1, newOption);
-    }
-    return nextQuest;
+    return newQuests;
 }
 
 /***
@@ -274,10 +272,15 @@ export function duplicateQuestionInArray(
     targetId: number,
     newId: number,
 ): Question[] {
-    const dupQuest = duplicateQuestion(newId, questions[targetId]);
-    const newQuest = { ...questions };
-
-    const nextQuest = newQuest.splice(targetId, 0, dupQuest);
-
-    return nextQuest;
+    const newQuest = [...questions];
+    const dupQuest = duplicateQuestion(
+        newId,
+        questions.find((q) => q.id === targetId)!,
+    );
+    newQuest.splice(
+        newQuest.findIndex((q) => q.id === targetId) + 1,
+        0,
+        dupQuest,
+    );
+    return newQuest;
 }
