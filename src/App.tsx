@@ -6,6 +6,7 @@ import { StartAttempt } from "./components/StartAttempt";
 import { TwoDice } from "./components/TwoDice";
 import { CycleHoliday } from "./components/CycleHoliday";
 import { Counter } from "./components/Counter";
+import { Button } from "react-bootstrap";
 
 function App(): React.JSX.Element {
     return (
@@ -16,7 +17,7 @@ function App(): React.JSX.Element {
                 <br></br>
                 Hello World
                 <h1>header text</h1>
-                <img src={God} alt="god" />
+                {/* <img src={God} alt="god" /> */}
                 <ul>
                     <li>yummers.</li>
                     <li>yummers,</li>
