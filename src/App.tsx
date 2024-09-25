@@ -7,6 +7,10 @@ import { TwoDice } from "./components/TwoDice";
 import { CycleHoliday } from "./components/CycleHoliday";
 import { Counter } from "./components/Counter";
 import { Button } from "react-bootstrap";
+import { DoubleHalf } from "./bad-components/DoubleHalf";
+import { ColoredBox } from "./bad-components/ColoredBox";
+import { ShoveBox } from "./bad-components/ShoveBox";
+import { ChooseTeam } from "./bad-components/ChooseTeam";
 
 function App(): React.JSX.Element {
     return (
@@ -19,7 +23,7 @@ function App(): React.JSX.Element {
                 <h1>header text</h1>
                 {/* <img src={God} alt="god" /> */}
                 <ul>
-                    <li>yummers.</li>
+                    <li>yummerzzzzzzzz.</li>
                     <li>yummers,</li>
                     <li>yummers!</li>
                     <li>yummers?</li>
@@ -39,6 +43,18 @@ function App(): React.JSX.Element {
                     }}
                 ></div>
             </header>
+
+            <DoubleHalf></DoubleHalf>
+
+            <hr />
+            <ChooseTeam></ChooseTeam>
+            <hr></hr>
+            <div> can you type real text</div>
+            <hr />
+
+            <ColoredBox></ColoredBox>
+            <hr></hr>
+            <ShoveBox></ShoveBox>
             <hr></hr>
             <Counter></Counter>
             <hr />
@@ -51,6 +67,7 @@ function App(): React.JSX.Element {
             <ChangeType></ChangeType>
             <hr />
             <CycleHoliday></CycleHoliday>
+            <hr />
         </div>
     );
 }
