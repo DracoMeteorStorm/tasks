@@ -23,7 +23,7 @@ function App(): React.JSX.Element {
                 <h1>header text</h1>
                 {/* <img src={God} alt="god" /> */}
                 <ul>
-                    <li>yummers.</li>
+                    <li>yummerzzzzzzzz.</li>
                     <li>yummers,</li>
                     <li>yummers!</li>
                     <li>yummers?</li>
@@ -43,11 +43,15 @@ function App(): React.JSX.Element {
                     }}
                 ></div>
             </header>
-            <hr></hr>
-            {/* <DoubleHalf></DoubleHalf> */}
-            <hr></hr>
+
+            <DoubleHalf></DoubleHalf>
+
+            <hr />
             <ChooseTeam></ChooseTeam>
             <hr></hr>
+            <div> can you type real text</div>
+            <hr />
+
             <ColoredBox></ColoredBox>
             <hr></hr>
             <ShoveBox></ShoveBox>
@@ -63,6 +67,7 @@ function App(): React.JSX.Element {
             <ChangeType></ChangeType>
             <hr />
             <CycleHoliday></CycleHoliday>
+            <hr />
         </div>
     );
 }
