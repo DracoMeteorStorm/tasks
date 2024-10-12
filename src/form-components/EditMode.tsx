@@ -14,7 +14,9 @@ export function EditMode(): React.JSX.Element {
                     <input
                         type="checkbox"
                         checked={editMode}
-                        onChange={() => setEditMode(!editMode)}
+                        onChange={() => {
+                            setEditMode(!editMode);
+                        }}
                     />
                     {editMode ? "Switch to View Mode" : "Switch to Edit Mode"}
                 </label>
@@ -28,7 +30,9 @@ export function EditMode(): React.JSX.Element {
                             <input
                                 type="text"
                                 value={name}
-                                onChange={(e) => setName(e.target.value)}
+                                onChange={(e) => {
+                                    setName(e.target.value);
+                                }}
                             />
                         </div>
                         <div>
@@ -36,9 +40,9 @@ export function EditMode(): React.JSX.Element {
                                 <input
                                     type="checkbox"
                                     checked={isStudent}
-                                    onChange={(e) =>
-                                        setIsStudent(e.target.checked)
-                                    }
+                                    onChange={(e) => {
+                                        setIsStudent(e.target.checked);
+                                    }}
                                 />
                                 Are you a student?
                             </label>
